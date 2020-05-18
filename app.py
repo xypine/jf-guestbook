@@ -3,9 +3,13 @@ from flask import Flask
 
 app = Flask(__name__)
 
+c = 0
+
 @app.route('/')
 def hello():
-    return('Hello World!')
+    global c
+    c = c + 1
+    return(str(c))
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
